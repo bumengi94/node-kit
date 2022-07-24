@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"lib": ["ES2015"],
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
+	}
+}
