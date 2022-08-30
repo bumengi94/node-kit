@@ -20,7 +20,10 @@ app.use("/auth", authRouter);
 
 app.use(
 	"/health",
-	handleError((req: Request, res: Response) => res.sendStatus(StatusCodes.OK)),
+	handleError((req: Request, res: Response) => {
+		log.debug("health check");
+		res.sendStatus(StatusCodes.OK);
+	}),
 );
 app.use("*", (req: Request, res: Response) => res.sendStatus(StatusCodes.NOT_FOUND));
 app.use((err, req: Request, res: Response, _) => {

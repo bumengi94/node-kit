@@ -2,8 +2,8 @@ import { Column, CreateDateColumn, Index, PrimaryGeneratedColumn, UpdateDateColu
 
 export class Base {
 	@Index()
-	@PrimaryGeneratedColumn()
-	id: number;
+	@PrimaryGeneratedColumn("uuid")
+	id: string;
 
 	@Column("boolean", { default: true })
 	enable: boolean;

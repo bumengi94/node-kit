@@ -4,8 +4,7 @@ import { StatusCodes } from "./statusCodes";
 
 export const validateRequest = (req: Request<any>, rules: { body?: string[] }) => {
 	if (!!rules.body) {
-		for (const rule of rules.body) {
-			if (!req.body[rule]) throw new ErrorException(rule, StatusCodes.BAD_REQUEST);
-		}
+		const invalids = rules.body.filter((rule) => !req.body[rule]);
+		if (!!invalids.length) throw new ErrorException(invalids.join(", "), StatusCodes.BAD_REQUEST);
 	}
 };
