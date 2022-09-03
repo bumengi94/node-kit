@@ -1,5 +1,5 @@
 {
-  "name": "api-gateway",
+  "name": "node-kit",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
