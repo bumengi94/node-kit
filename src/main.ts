@@ -32,8 +32,4 @@ app.use((err, req: Request, res: Response, _) => {
 	else res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
 });
 
-export default () =>
-	new Promise<Server>((resolve) => {
-		log.debug("main started");
-		resolve(app.listen(process.env.PORT));
-	});
+export default () => new Promise<Server>((resolve) => resolve(app.listen(process.env.PORT)));

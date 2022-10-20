@@ -9,11 +9,11 @@ import { logger } from "../utils/logger";
 const userRepo = AppDataSource.getRepository(User);
 const log = logger("user.service");
 
-export const loginUserService = async (payload: Pick<User, "phone" | "hash">) => {
+export const loginUserService = async (payload: Pick<User, "email" | "hash">) => {
 	log.debug("loginUserService started");
 	const data = await userRepo.findOne({
-		where: { phone: payload.phone, enable: true },
-		select: ["id", "phone", "hash"],
+		where: { email: payload.email, enable: true },
+		select: ["id", "email", "hash"],
 	});
 	const isCorrect = bcrypt.compareSync(payload.hash, data?.hash || "");
 	if (!data || !isCorrect) throw new ErrorException(ErrorCodes.WRONG_CREDENTIALS, StatusCodes.UNAUTHORIZED);

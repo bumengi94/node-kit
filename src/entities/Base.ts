@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Index, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Index, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export class Base {
 	@Index()
@@ -13,4 +13,7 @@ export class Base {
 
 	@UpdateDateColumn()
 	updatedAt: Date;
+
+	@DeleteDateColumn()
+	deletedAt: Date;
 }

@@ -4,24 +4,23 @@ import { AppDataSource } from "./db";
 import seeds from "./seeds";
 import { logger } from "./utils/logger";
 
-const log = logger("API");
+const log = logger("api");
 
 (async () => {
 	try {
-		log.debug("Starting");
+		log.debug("started");
 		await AppDataSource.initialize();
 		const server = await main();
-		await seeds();
-		log.debug("Started");
-
+		seeds();
+		log.debug("ended");
 		["SIGTERM", "SIGINT"].forEach((signal) =>
 			process.on(signal, () => {
 				AppDataSource.destroy();
 				server.close();
-				log.debug("Stopped");
+				log.debug("stopped");
 			}),
 		);
 	} catch (e) {
-		log.error(e);
+		log.error("error: ", e);
 	}
 })();
