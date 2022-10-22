@@ -1,0 +1,152 @@
+_type: export
+__export_format: 4
+__export_date: 2022-10-22T15:13:10.969Z
+__export_source: insomnia.desktop.app:v2022.6.0
+resources:
+  - _id: req_01992e6946074dd5beeaee367e35c3ea
+    parentId: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    modified: 1666443802310
+    created: 1666296552497
+    url: http://localhost:3000/health
+    name: health
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1666443793838
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    parentId: null
+    modified: 1666296549567
+    created: 1666296549567
+    name: node-kit
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_0fcab8a7dca44969a709ee211eef6107
+    parentId: fld_4b5403825ae64f16b77ca7b070867e99
+    modified: 1666444983498
+    created: 1666296616565
+    url: http://localhost:3000/auth
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"admin@admin.com",
+        	"password":"qweqwe"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1666194434014
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_4b5403825ae64f16b77ca7b070867e99
+    parentId: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    modified: 1666443793788
+    created: 1666443793788
+    name: auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1666443793788
+    _type: request_group
+  - _id: req_280001786cbe40c193f47db5a7a059a6
+    parentId: fld_4b5403825ae64f16b77ca7b070867e99
+    modified: 1666445180500
+    created: 1666443807830
+    url: http://localhost:3000/auth/register
+    name: register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"admin2@admin.com",
+        	"password":"qweqwe"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1666143374772.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8b26c07347734f78a0bd666b113709ce
+    parentId: fld_4b5403825ae64f16b77ca7b070867e99
+    modified: 1666449835483
+    created: 1666445185097
+    url: http://localhost:3000/auth
+    name: me
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_0fcab8a7dca44969a709ee211eef6107',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+    metaSortKey: -1666117845151.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_0d04f9eb1128c3ee125d7180435736744f8122da
+    parentId: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    modified: 1666296549581
+    created: 1666296549581
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1666296549581
+    _type: environment
+  - _id: jar_0d04f9eb1128c3ee125d7180435736744f8122da
+    parentId: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    modified: 1666296549582
+    created: 1666296549582
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_e68274d539084d34bab673afaad85feb
+    parentId: wrk_ad0fbc1b90be4abfa1d6b5ac31c89d1b
+    modified: 1666296549578
+    created: 1666296549578
+    fileName: node-kit
+    contents: ""
+    contentType: yaml
+    _type: api_spec
