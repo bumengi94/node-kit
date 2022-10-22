@@ -6,6 +6,9 @@ import { logger } from "~@utils/logger";
 
 const log = logger("api");
 
+/**
+ * Start point.
+ */
 (async () => {
 	try {
 		log.debug("started");

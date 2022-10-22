@@ -1,4 +1,7 @@
-export enum StatusCodes {
+/**
+ * All http status codes.
+ */
+export enum EStatusCodes {
 	CONTINUE = 100,
 	SWITCHING_PROTOCOLS = 101,
 	PROCESSING = 102,

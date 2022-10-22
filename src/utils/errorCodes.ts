@@ -1,4 +1,8 @@
-export enum ErrorCodes {
+/**
+ * Application errors.
+ */
+export enum EErrorCodes {
 	WRONG_CREDENTIALS,
-	ACCESS_DENIED,
+	EXIST_USER,
+	PERMISSION_DENIED,
 }

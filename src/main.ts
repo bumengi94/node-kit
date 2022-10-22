@@ -3,13 +3,14 @@ import helmet from "helmet";
 import cors from "cors";
 import dotenv from "dotenv";
 import { Server } from "http";
-import { StatusCodes } from "~@utils/statusCodes";
+import { EStatusCodes } from "~@utils/EStatusCodes";
 import { ErrorException, handleError } from "~@utils/errors";
-import { authRouter } from "~@routers/auth.router";
 import { logger } from "~@utils/logger";
+import { authRouter } from "~@routers/auth.router";
 
 const log = logger("main");
 dotenv.config();
+
 export const app = express();
 app.disable("etag");
 app.use(express.json());
@@ -22,14 +23,14 @@ app.use(
 	"/health",
 	handleError((req: Request, res: Response) => {
 		log.debug("health check");
-		res.sendStatus(StatusCodes.OK);
+		res.sendStatus(EStatusCodes.OK);
 	}),
 );
-app.use("*", (req: Request, res: Response) => res.sendStatus(StatusCodes.NOT_FOUND));
+app.use("*", (req: Request, res: Response) => res.sendStatus(EStatusCodes.NOT_FOUND));
 app.use((err, req: Request, res: Response, _) => {
 	log.error("error: ", err);
 	if (err instanceof ErrorException) res.status(err.status).json(err.message);
-	else res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
+	else res.sendStatus(EStatusCodes.INTERNAL_SERVER_ERROR);
 });
 
 export default () => new Promise<Server>((resolve) => resolve(app.listen(process.env.PORT)));
