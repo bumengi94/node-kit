@@ -1,8 +1,8 @@
-import { AppDataSource } from "./db";
-import { User } from "./entities/User";
 import { genSaltSync, hashSync } from "bcryptjs";
-import { logger } from "./utils/logger";
 import _ from "lodash";
+import { AppDataSource } from "./db";
+import { User } from "~@entities/User";
+import { logger } from "~@utils/logger";
 
 const log = logger("seeds");
 

@@ -4,6 +4,15 @@
 		"esModuleInterop": true,
 		"lib": ["ES2015"],
 		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"paths": {
+			"~@controllers/*": ["./src/controllers/*"],
+			"~@entities/*": ["./src/entities/*"],
+			"~@middlewares/*": ["./src/middlewares/*"],
+			"~@routers/*": ["./src/routers/*"],
+			"~@services/*": ["./src/services/*"],
+			"~@utils/*": ["./src/utils/*"],
+			"~@validators/*": ["./src/validators/*"]
+		}
 	}
 }

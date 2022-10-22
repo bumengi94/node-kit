@@ -2,11 +2,11 @@ import express, { Request, Response } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import dotenv from "dotenv";
-import { StatusCodes } from "./utils/statusCodes";
-import { ErrorException, handleError } from "./utils";
 import { Server } from "http";
-import { authRouter } from "./routers/auth.router";
-import { logger } from "./utils/logger";
+import { StatusCodes } from "~@utils/statusCodes";
+import { ErrorException, handleError } from "~@utils/errors";
+import { authRouter } from "~@routers/auth.router";
+import { logger } from "~@utils/logger";
 
 const log = logger("main");
 dotenv.config();

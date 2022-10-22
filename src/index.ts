@@ -2,7 +2,7 @@ import "reflect-metadata";
 import main from "./main";
 import { AppDataSource } from "./db";
 import seeds from "./seeds";
-import { logger } from "./utils/logger";
+import { logger } from "~@utils/logger";
 
 const log = logger("api");
 
